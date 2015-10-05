@@ -114,6 +114,9 @@ export default class ParseObject {
         }
       }
     }
+    if (toSet && this.defaults) {
+      Object.assign(toSet, this.defaults());
+    }
     if (toSet && !this.set(toSet)) {
       throw new Error('Can\'t create an invalid Parse Object');
     }
